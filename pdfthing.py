@@ -17,6 +17,8 @@ class MainWindow(QMainWindow):
 
         self.ui.button_removeFile.clicked.connect(self.remove_file)
 
+        self.ui.button_clearList.clicked.connect(self.clear_files)
+
     def open_file_dialog(self):
         file_paths, _ = QFileDialog.getOpenFileNames(self, 'Pick the pdf file', '', 'PDF files (*.pdf)' )
 
@@ -24,11 +26,19 @@ class MainWindow(QMainWindow):
             if path not in self.file_list:
                 self.file_list.append(path)
                 self.ui.list_files.addItem(path)
+
     def remove_file(self):
-        pass
+        print(self.ui.list_files.selectedItems())
+        for item in self.ui.list_files.selectedItems():
+            path = item.text()
+
+            self.file_list.remove(path)
+            self.ui.list_files.takeItem(self.ui.list_files.row(item))
 
     def clear_files(self):
-        pass
+        self.file_list = []
+        self.ui.list_files.clear()
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
