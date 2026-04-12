@@ -1,8 +1,8 @@
 import sys
 
-from PySide6.QtWidgets import QFileDialog
+from PySide6.QtWidgets import QFileDialog, QAbstractItemView
 from PySide6.QtWidgets import QApplication, QMainWindow
-from PySide6.QtCore import QFile
+from PySide6.QtCore import QFile, Qt
 from ui_mainwindow import Ui_MainWindow
 
 class MainWindow(QMainWindow):
@@ -12,6 +12,9 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
 
         self.file_list = []
+        self.ui.list_files.setDragDropMode(QAbstractItemView.InternalMove)
+        self.ui.list_files.setDefaultDropAction(Qt.MoveAction)
+        self.ui.list_files.model().rowsMoved.connect(self.reorder_files)
 
         self.ui.button_addFile.clicked.connect(self.open_file_dialog)
 
@@ -28,7 +31,6 @@ class MainWindow(QMainWindow):
                 self.ui.list_files.addItem(path)
 
     def remove_file(self):
-        print(self.ui.list_files.selectedItems())
         for item in self.ui.list_files.selectedItems():
             path = item.text()
 
@@ -39,6 +41,8 @@ class MainWindow(QMainWindow):
         self.file_list = []
         self.ui.list_files.clear()
 
+    def reorder_files(self, *args):
+        self.file_list = [self.ui.list_files.item(i).text() for i in range(self.ui.list_files.count())]
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
