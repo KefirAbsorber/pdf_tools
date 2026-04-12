@@ -76,7 +76,7 @@
      <string>Output file</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="button_merge">
     <property name="geometry">
      <rect>
       <x>280</x>
@@ -102,20 +102,20 @@
      <string>Input files</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="button_choseLocation">
     <property name="geometry">
      <rect>
       <x>40</x>
       <y>430</y>
-      <width>90</width>
+      <width>121</width>
       <height>29</height>
      </rect>
     </property>
     <property name="text">
-     <string>Pick location</string>
+     <string>Chose location</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="textEdit">
+   <widget class="QTextEdit" name="text_outputFile">
     <property name="geometry">
      <rect>
       <x>70</x>
