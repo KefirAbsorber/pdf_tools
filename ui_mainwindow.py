@@ -15,33 +15,48 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QListWidget, QListWidgetItem, QMainWindow,
-    QMenuBar, QPushButton, QSizePolicy, QStatusBar,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QLabel, QListWidget, QListWidgetItem,
+    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
+    QStatusBar, QTextEdit, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(679, 455)
+        MainWindow.resize(665, 608)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.button_addFile = QPushButton(self.centralwidget)
         self.button_addFile.setObjectName(u"button_addFile")
-        self.button_addFile.setGeometry(QRect(40, 20, 101, 29))
+        self.button_addFile.setGeometry(QRect(40, 20, 151, 51))
         self.list_files = QListWidget(self.centralwidget)
         self.list_files.setObjectName(u"list_files")
-        self.list_files.setGeometry(QRect(40, 60, 391, 192))
+        self.list_files.setGeometry(QRect(70, 100, 511, 281))
         self.button_removeFile = QPushButton(self.centralwidget)
         self.button_removeFile.setObjectName(u"button_removeFile")
-        self.button_removeFile.setGeometry(QRect(180, 20, 101, 29))
+        self.button_removeFile.setGeometry(QRect(250, 20, 151, 51))
         self.button_clearList = QPushButton(self.centralwidget)
         self.button_clearList.setObjectName(u"button_clearList")
-        self.button_clearList.setGeometry(QRect(330, 20, 90, 29))
+        self.button_clearList.setGeometry(QRect(450, 20, 151, 51))
+        self.label = QLabel(self.centralwidget)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(60, 460, 91, 20))
+        self.pushButton = QPushButton(self.centralwidget)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(280, 390, 90, 51))
+        self.label_2 = QLabel(self.centralwidget)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(60, 80, 91, 20))
+        self.pushButton_2 = QPushButton(self.centralwidget)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(40, 430, 90, 29))
+        self.textEdit = QTextEdit(self.centralwidget)
+        self.textEdit.setObjectName(u"textEdit")
+        self.textEdit.setGeometry(QRect(70, 480, 511, 31))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 679, 25))
+        self.menubar.setGeometry(QRect(0, 0, 665, 25))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -57,5 +72,9 @@ class Ui_MainWindow(object):
         self.button_addFile.setText(QCoreApplication.translate("MainWindow", u"Add file", None))
         self.button_removeFile.setText(QCoreApplication.translate("MainWindow", u"Remove selected", None))
         self.button_clearList.setText(QCoreApplication.translate("MainWindow", u"Clear", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Output file", None))
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"Merge ", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Input files", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainWindow", u"Pick location", None))
     # retranslateUi
 
