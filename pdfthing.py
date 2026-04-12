@@ -11,10 +11,8 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.file_list = []
         self.ui.list_files.setDragDropMode(QAbstractItemView.InternalMove)
         self.ui.list_files.setDefaultDropAction(Qt.MoveAction)
-        self.ui.list_files.model().rowsMoved.connect(self.reorder_files)
 
         self.ui.button_addFile.clicked.connect(self.open_file_dialog)
 
@@ -26,23 +24,16 @@ class MainWindow(QMainWindow):
         file_paths, _ = QFileDialog.getOpenFileNames(self, 'Pick the pdf file', '', 'PDF files (*.pdf)' )
 
         for path in file_paths:
-            if path not in self.file_list:
-                self.file_list.append(path)
+            if not self.ui.list_files.findItems(path, Qt.MatchExactly):
                 self.ui.list_files.addItem(path)
 
     def remove_file(self):
         for item in self.ui.list_files.selectedItems():
-            path = item.text()
-
-            self.file_list.remove(path)
             self.ui.list_files.takeItem(self.ui.list_files.row(item))
 
     def clear_files(self):
-        self.file_list = []
         self.ui.list_files.clear()
 
-    def reorder_files(self, *args):
-        self.file_list = [self.ui.list_files.item(i).text() for i in range(self.ui.list_files.count())]
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
