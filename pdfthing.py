@@ -1,9 +1,9 @@
 import sys
 
-from PySide6.QtWidgets import QFileDialog, QAbstractItemView
-from PySide6.QtWidgets import QApplication, QMainWindow
-from PySide6.QtCore import QFile, Qt
+from PySide6.QtWidgets import QFileDialog, QAbstractItemView, QApplication, QMainWindow
+from PySide6.QtCore import Qt
 from ui_mainwindow import Ui_MainWindow
+
 
 class MainWindow(QMainWindow):
     def __init__(self):
@@ -21,7 +21,7 @@ class MainWindow(QMainWindow):
         self.ui.button_clearList.clicked.connect(self.clear_files)
 
     def open_file_dialog(self):
-        file_paths, _ = QFileDialog.getOpenFileNames(self, 'Pick the pdf file', '', 'PDF files (*.pdf)' )
+        file_paths, _ = QFileDialog.getOpenFileNames(self, 'Pick the pdf file', '', 'PDF files (*.pdf)')
 
         for path in file_paths:
             if not self.ui.list_files.findItems(path, Qt.MatchExactly):
