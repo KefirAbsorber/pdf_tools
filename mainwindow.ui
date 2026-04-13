@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>574</width>
-    <height>590</height>
+    <width>567</width>
+    <height>603</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,15 +19,15 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>651</width>
-      <height>561</height>
+      <width>571</width>
+      <height>581</height>
      </rect>
     </property>
     <property name="acceptDrops">
      <bool>false</bool>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab_merger">
      <attribute name="title">
@@ -38,15 +38,15 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>631</width>
-        <height>511</height>
+        <width>571</width>
+        <height>521</height>
        </rect>
       </property>
       <widget class="QPushButton" name="button_merge">
        <property name="geometry">
         <rect>
-         <x>240</x>
-         <y>370</y>
+         <x>230</x>
+         <y>460</y>
          <width>90</width>
          <height>51</height>
         </rect>
@@ -59,7 +59,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>440</y>
+         <y>400</y>
          <width>91</width>
          <height>20</height>
         </rect>
@@ -121,7 +121,7 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>410</y>
+         <y>370</y>
          <width>121</width>
          <height>29</height>
         </rect>
@@ -147,7 +147,7 @@
        <property name="geometry">
         <rect>
          <x>30</x>
-         <y>460</y>
+         <y>420</y>
          <width>511</width>
          <height>31</height>
         </rect>
@@ -168,6 +168,194 @@
         <height>531</height>
        </rect>
       </property>
+      <widget class="QTextEdit" name="text_inputFile">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>50</y>
+         <width>461</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>30</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Input file</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_choseFile">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>121</width>
+         <height>29</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Chose a file</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>91</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Pages</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="text_pagesNum">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>50</y>
+         <width>51</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="table_outputFiles">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>230</y>
+         <width>531</width>
+         <height>201</height>
+        </rect>
+       </property>
+       <property name="sizeAdjustPolicy">
+        <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
+       </property>
+       <column>
+        <property name="text">
+         <string>Starting page</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Ending Page</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Output file</string>
+        </property>
+       </column>
+      </widget>
+      <widget class="QPushButton" name="button_removeFile_2">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>170</y>
+         <width>151</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Remove selected</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_clearList_2">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>170</y>
+         <width>151</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_addFile_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>170</y>
+         <width>151</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Add file</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="combo_startingPage">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>130</y>
+         <width>82</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="combo_endingPage">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>130</y>
+         <width>82</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_split">
+       <property name="geometry">
+        <rect>
+         <x>150</x>
+         <y>450</y>
+         <width>261</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Split</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>100</y>
+         <width>201</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Output files</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="button_outputPicker">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>130</y>
+         <width>381</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Chose an output file</string>
+       </property>
+      </widget>
      </widget>
     </widget>
    </widget>
@@ -177,8 +365,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>574</width>
-     <height>21</height>
+     <width>567</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>
