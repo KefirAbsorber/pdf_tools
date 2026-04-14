@@ -12,6 +12,9 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
+        self.ui.table_outputFiles.horizontalHeader().setStretchLastSection(True)
+        self.ui.table_outputFiles.resizeColumnsToContents()
+
         self.merger_tab = MergerTab(self.ui)
         self.splitter_tab = SplitterTab(self.ui)
 
