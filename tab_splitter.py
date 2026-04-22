@@ -24,6 +24,8 @@ class SplitterTab(QWidget):
 
         self.ui.button_addFile_2.clicked.connect(self.append_table)
 
+        self.ui.button_removeFile_2.clicked.connect(self.remove_file)
+
     def set_inputFile(self):
         file_path, _ = QFileDialog.getOpenFileName(self, 'Pick the pdf file', '', 'PDF files (*.pdf)')
         self.ui.text_inputFile.setText(file_path)
@@ -79,3 +81,7 @@ class SplitterTab(QWidget):
 
         # reset UI
         self.ui.button_outputPicker.setText("Chose an output file")
+
+    def remove_file(self):
+        for item in self.ui.table_outputFiles.selectedItems():
+            self.ui.table_outputFiles.removeRow(self.ui.table_outputFiles.row(item))
