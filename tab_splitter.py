@@ -91,16 +91,28 @@ class SplitterTab(QWidget):
             self.ui.table_outputFiles.removeRow(self.ui.table_outputFiles.row(item))
 
     def split_files(self):
-        reader = PdfReader(self.ui.text_inputFile.toPlainText())
 
+        if self.ui.table_outputFiles.rowCount() == 0:
+            QMessageBox.information(None, 'Error', 'Please fill all required fields.')
+            return
+
+        reader = PdfReader(self.ui.text_inputFile.toPlainText())
         for row in range(self.ui.table_outputFiles.rowCount()):
             writer = PdfWriter()
-            start_page = int(self.ui.table_outputFiles.item(row, 0).text()) - 1
+            start_page = int(self.ui.table_outputFiles.item(row, 0).text())
             end_page = int(self.ui.table_outputFiles.item(row, 1).text())
             output_path = self.ui.table_outputFiles.item(row, 2).text()
 
-            for i in range(start_page, end_page):
-                writer.add_page(reader.pages[i])
+            if start_page > end_page:
+                anwser = QMessageBox.question(self, 'Reverse?', f'Are you sure you want to get pages {start_page} - {end_page}? This will create a file {output_path} in reverse order. No will ignore reversed entry', QMessageBox.Yes | QMessageBox.No)
+                if anwser == QMessageBox.Yes:
+                    for i in reversed(range(end_page-1, start_page)):
+                        writer.add_page(reader.pages[i])
+                else:
+                    continue
+            else:
+                for i in range(start_page-1, end_page):
+                    writer.add_page(reader.pages[i])
 
             writer.write(output_path)
 
