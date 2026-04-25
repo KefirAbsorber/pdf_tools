@@ -26,6 +26,8 @@ class SplitterTab(QWidget):
 
         self.ui.button_removeFile_2.clicked.connect(self.remove_file)
 
+        self.ui.button_split.clicked.connect(self.split_files)
+
     def set_inputFile(self):
         file_path, _ = QFileDialog.getOpenFileName(self, 'Pick the pdf file', '', 'PDF files (*.pdf)')
         self.ui.text_inputFile.setText(file_path)
@@ -81,7 +83,26 @@ class SplitterTab(QWidget):
 
         # reset UI
         self.ui.button_outputPicker.setText("Chose an output file")
+        self.ui.combo_startingPage.setCurrentIndex(0)
+        self.ui.combo_endingPage.setCurrentIndex(0)
 
     def remove_file(self):
         for item in self.ui.table_outputFiles.selectedItems():
             self.ui.table_outputFiles.removeRow(self.ui.table_outputFiles.row(item))
+
+    def split_files(self):
+        reader = PdfReader(self.ui.text_inputFile.toPlainText())
+
+        for row in range(self.ui.table_outputFiles.rowCount()):
+            writer = PdfWriter()
+            start_page = int(self.ui.table_outputFiles.item(row, 0).text()) - 1
+            end_page = int(self.ui.table_outputFiles.item(row, 1).text())
+            output_path = self.ui.table_outputFiles.item(row, 2).text()
+
+            for i in range(start_page, end_page):
+                writer.add_page(reader.pages[i])
+
+            writer.write(output_path)
+
+        self.clear_files()
+        QMessageBox.information(None, 'Succes', 'Splitting successful.')
